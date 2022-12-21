@@ -12,9 +12,9 @@ layout: default
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-15 col-md-10 mx-auto">
           <div class="page-heading">
-            <h2>Mental health during lockdowns through the eyes of Wikipedia</h2>
+            <h1 style="color: azure">Mental health during lockdowns through the eyes of Wikipedia</h1>
             {% if page.description %}
             <span class="subheading">{{ page.description }}</span>
             {% endif %}
@@ -28,62 +28,160 @@ layout: default
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a
-          globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which
-          there is no center because every point, or none, is center — an equal earth which all men occupy as equals.
-          The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
+        <head>
+          <style>
+            h1 {
+              color: purple;
+              font-size: 30px;
+            }
 
-        <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning
-          back from science. The early warnings about technological dangers also come from science.</p>
+            h2 {
+              color: purple;
+              font-size: 25px;
+            }
 
-        <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye
-          on the earth.</p>
+            h3 {
+              color: purple;
+              font-size: 20px;
+            }
 
-        <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors
-          rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love
-          and cherish her.</p>
+            p {
+              font-size: 18px;
+            }
 
-        <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the
-          experience most certainly changes your perspective. The things that we share in our world are far more
-          valuable than those which divide us.</p>
+            /*this is the size of text*/
+            ::selection {
+              color: white;
+              background: purple;
+            }
 
-        <h2 class="section-heading">The Final Frontier</h2>
+            /* Code for Firefox */
+            /*::-moz-selection {
+              color: red;
+              background: yellow;
+            }*/
+          </style>
+        </head>
 
-        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a
-          task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just
-          beginning.</p>
+        <body>
 
-        <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a
-          task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just
-          beginning.</p>
+          <!-- Body -->
+          <h1 id="Introduction">Introduction</h1>
 
-        <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow.
-          Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the
-          next ten.</blockquote>
+          <!-- Will have to update this text after-->
+          !TODO UPDATE AFTER FINISHING DATA STORY!
 
-        <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a
-          historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
+          <p>
+            The COVID-19 pandemic braught an undoubtedly change into our daily lives and has had many consequences on
+            society, individual's and their behaviors.
+            We would expect the COVID-19 pandemic, along with the lockdown restrictions, social distancing and reduced
+            working opportunities, to have had an impact on the mental health of many individuals, but how to evaluate
+            these effects?.
+            To what degree did the COVID-19 pandemic correlate with mental health awareness?, how does it correlate with
+            the real number of mental health cases? and did these effects persist after relaxation of restrictions?.
+            Futhermore can we deduce what governmental policies and COVID related events have the biggest impact on
+            mental
+            health awarness?
+          </p>
 
-        <h2 class="section-heading">Reaching for the Stars</h2>
+          <h1>What data?</h1>
+          <!-- include our approahc, why we selected subset of mental health issues and selection of countries/language groups to focus on-->
+          <h2>
+            Wikipedia pageviews
+          </h2>
 
-        <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a
-          marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so
-          delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a
-          man.</p>
+          <p>
+            Pageviews for certain online website pages can be used as an indicator of awarness towards specific
+            topics.
+            Although using pageviews as predictor or indicator of occurring events does have its downfalls(which we
+            will
+            address later), it can still be used as a powerful tool to measure awareness and popularity.
 
-        <img class="img-fluid" src="https://source.unsplash.com/Mn9Fa_wQH-M/800x450" alt="Demo Image">
-        <span class="caption text-muted">To go places and do things that have never been done before – that’s what
-          living is all about.</span>
+            The next issue however, is where to get reliable pageview statistics?. With an average monthly number of
+            263
+            million pageviews per month targeted towards specific pages and topics, Wikipedia is the most popular
+            online
+            encyclopedia, furthermore Wikipedia provides us with detailed daily pageview statistics for specific
+            pages
+            and for specific languages.
+          </p>
 
-        <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to
-          explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone
-          before.</p>
+          <h3>
+            But every country reacted differently
+          </h3>
+          <p>
+            Many countries have had very different approaches towards the pandemic, with different lockdown dates
+            and
+            levels of interference to mobility and social relationships. It is thus necessary to analyse data on a
+            'per
+            country' basis, if we wish to study the effects of the COVID-19 and its restriction, on individuals.
+          </p>
 
-        <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to
-          our nature, Man must explore, and this is exploration at its greatest.</p>
+          <p>
+            In order to approximate 'per country' level pageview data we will focus on wikipedia articles that are
+            written in languages used only within a single country, because for these articles we can safely assume,
+            that for broad topics such as mental health, a majority of pageviews come from individuals within these
+            respective countries.
+            We will thus focus on the following 4 languages "Italian", "Dutch", "Swedish" and "Polish".
+            Furthermore picking these countries has the added benefit allowing us to compare data from countries who
+            have had different approaches towards the pandemic.
+          </p>
 
-        <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a
-            href="https://unsplash.com/">Unsplash</a>.</p>
+          <p>
+            Furthermore we have available to us aggregated wikipedia statistics per topic.
+          </p>
+
+          <!-- TODO: Add vline for lockdown dates in these 3 countries, also changer title with "per language" instead of "per country"-->
+          <figure>
+            <img src="https://i.imgur.com/Educ7eX.png" alt="per topic pageviews" style="width:100%">
+            <figcaption> </figcaption>
+          </figure>
+
+          We can observe, there is indeed an increase in pageviews on wikipedia articles related to "medicine and
+          health" during the months of lockdown for articles in these respective languages, what could be cause of
+          this
+          increase?.
+
+          <p>
+
+          </p>
+
+          <p>
+
+          </p>
+
+
+
+          ## COVIDiSTRESS dataset
+
+          # Q1
+
+          # Q2
+
+          # Q3
+
+
+          # Downfalls and limitations
+          TODO MODIFY THIS: TAKEN FROM
+          https://www.vox.com/2014/11/13/7211113/wikipedia-flu-disease
+          For instance, he suspects that traffic to the English-language Ebola page on Wikipedia surged recently
+          (the
+          researchers' analysis didn't cover data as recent as the current outbreak). However, that likely had way
+          more
+          to do with general fear of the disease, rather than actual cases of it in the US or other English-speaking
+          countries.
+
+          The key is trying to understand the particular context of the disease and country in question each time —
+          rather that blindly assuming Wikipedia data captures it perfectly. "Each time, you have to ask some
+          questions," Generous says. "What are the biases in the data? What types of people are searching for their
+          diseases? What do those searches really mean?"
+
+          # Conclusion
+
+
+          <!-- Could try to explain results, propose future work -->
+
+        </body>
 
       </div>
     </div>

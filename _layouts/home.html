@@ -65,6 +65,13 @@ layout: default
               width: 50%;
             }
 
+            .center {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 80%;
+            }
+
             /* Clear floats after image containers */
             .row::after {
               content: "";
@@ -360,18 +367,8 @@ layout: default
           </p>
 
 
-
-          | Topic | Country | The Significant Effect on PageViews |
-          | -------- | -------- | -------- |
-          | Anxiety | Sweden | -19% |
-          | Depression | Netherlands | -13% |
-          | Depression | Poland | -26% |
-          | Loneliness | Netherlands | +49% |
-          | Loneliness | Poland | +29% |
-          | Loneliness | Italy | +69% |
-          | Stress | Poland | +52% |
-          | Stress | Italy | +41% |
-
+          <img src="img/table_images/table1.png" alt="per topic pageviews" style="width:100%">
+          <figcaption> </figcaption>
 
           <p>Having shown the significant impact of lockdowns on Wikipedia pageviews for certain disease/country
             combinations, we shall examine why lockdown have such effect. Could have the change in pageviews be caused
@@ -460,16 +457,8 @@ layout: default
             of mobility on pageviews too.
           </p>
 
-          | Topic | Country | Signficant impact of Covid on PageViews | Signficant Impact of Mobility on Pageviews |
-          | -------- | -------- | -------- | -------- |
-          | Anxiety | Sweden | -19% | ✘ |
-          | Depression | Netherlands | -13% |✘ |
-          | Depression | Poland | -26% |some |
-          | Loneliness | Netherlands | +49% |✔ |
-          | Loneliness | Poland | +29% |✔|
-          | Loneliness | Italy | +69% |✔|
-          | Stress | Poland | +52% |✔ |
-          | Stress | Italy | +41% |✔ |
+          <img src="img/table_images/table2.png" alt="per topic pageviews" style="width:100%">
+          <figcaption> </figcaption>
 
 
 
@@ -525,23 +514,20 @@ layout: default
             indeed a significant increase in mobility,
           </p>
 
-          | Mobility | F(Dof within, Dof between) | p-values |
-          | -------- | -------- | -------- |
-          | Apples | F(2, 120) = 626.271 | ~0.000000
-          | Google | F(2, 120) = 244.005 | ~0.000000
+          <img src="img/table_images/table3.png" alt="per topic pageviews" class='center'>
+          <figcaption> </figcaption>
 
           <p>
             We have significant result in both time period and countries.
           </p>
 
-          | Mobility | F(Dof within, Dof between) | p-values |
-          | -------- | -------- | -------- |
-          | Apples | F(3, 120) = 475.761 | ~0.000000
-          | Google | F(3, 120) = 253.367 | ~0.000000
+          <img src="img/table_images/table4.png" alt="per topic pageviews" class='center'>
+          <figcaption> </figcaption>
 
           <p>
             And all post hoc Conover tests result showed a p-value under the Sidak correction.
           </p>
+
 
           <h2>Can we grasp the real effect of Covid on mental health using Covidistress?</h2>
           <p>
@@ -549,9 +535,9 @@ layout: default
             distribution of the likert scale perception, for both stress and loneliness.
           </p>
 
-          <img src="img/datastoryimages/img18.png" alt="Mobility during covidistress" style="width:100%">
-          <img src="img/datastoryimages/img19.png" alt="Mobility during covidistress" style="width:100%">
-          <img src="img/datastoryimages/img20.png" alt="Mobility during covidistress" style="width:100%">
+          <img src="img/datastoryimages/img18.png" alt="Mobility during covidistress" class='center' style="width:90%">
+          <img src="img/datastoryimages/img19.png" alt="Mobility during covidistress" class='center' style="width:100%">
+          <img src="img/datastoryimages/img20.png" alt="Mobility during covidistress" class='center' style="width:100%">
 
           <p>
             We observe a generalize median of 3 on the likert scale, indicating that there is indeed a mild feeling of
@@ -568,21 +554,16 @@ layout: default
           </p>
 
 
-          | Mental issues | F(Dof within, Dof between) | p-values |
-          | -------- | -------- | -------- |
-          | Loneliness | F(2, 120) = 0.245275 | 0.782491
-          | Stress | F(2, 120) = 0.230234 | 0.794349
+          <img src="img/table_images/table5.png" alt="per topic pageviews" class='center'>
+          <figcaption> </figcaption>
 
           <p>
             Concerning difference between countries, we observe a statistically significant result (Stress: F(3, 120) =
             898.646135, p ~= 0.000000, Loneliness: F(3, 120) = 354.520932, p = 1.567319e-225)
           </p>
 
-          | Mental issues | F(Dof within, Dof between) | p-values |
-          | -------- | -------- | -------- |
-          | Loneliness | F(3, 120) = 898.646135 | ~0.000000
-          | Stress | F(3, 120) = 354.520932 | 1.567319e-225
-
+          <img src="img/table_images/table6.png" alt="per topic pageviews" class='center'>
+          <figcaption> </figcaption>
           <p>
             We then look at the difference within the countries using Conover test, a Post hoc test. Showing a
             statistically significant difference between all countries in terms of stress perception and all but Sweden

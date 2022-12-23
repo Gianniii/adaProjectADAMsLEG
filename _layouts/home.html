@@ -95,7 +95,8 @@ layout: default
             To what degree did the COVID-19 pandemic correlate with mental health awareness?, how does it correlate with
             the real number of mental health cases?.
           </p>
-          <h1>What data?</h1>
+          <hr>
+          <h1 id="WhatData">What data?</h1>
           <!-- include our approahc, why we selected subset of mental health issues and selection of countries/language groups to focus on-->
           <h2>
             Wikipedia pageviews
@@ -104,8 +105,9 @@ layout: default
           <p>
             Pageviews for certain online website pages can be used as an indicator of awarness towards specific topics.
             Although using pageviews as predictor or indicator of occurring events does have its downfalls(which we will
-            address later), it can still be used as a powerful tool to measure awareness and popularity.<br>
-
+            address later), it can still be used as a powerful tool to measure awareness and popularity.
+          </p>
+          <p>
             The next issue however, is where we can get reliable pageview statistics? With an average monthly number of
             263 million pageviews per month targeted towards specific pages and topics, Wikipedia is the most popular
             online encyclopedia, furthermore Wikipedia provides us with detailed daily pageview statistics for specific
@@ -117,10 +119,16 @@ layout: default
             But every country reacted differently
           </h3>
           <p>
-            Many countries have had very different approaches towards taming of the pandemic, with different lockdown
-            dates and levels of interference to mobility and social relationships. It is thus necessary to analyse data
-            on a 'per country' basis, if we wish to study the effects of the COVID-19 and its restriction, on
-            individuals.
+            Pageviews for certain online website pages can be used as an indicator of awarness towards specific topics.
+            Although using pageviews as predictor or indicator of occurring events does have its downfalls(which we will
+            address later), it can still be used as a powerful tool to measure awareness and popularity.
+          </p>
+          <p>
+            The next issue however, is where we can get reliable pageview statistics? With an average monthly number of
+            263 million pageviews per month targeted towards specific pages and topics, Wikipedia is the most popular
+            online encyclopedia, furthermore Wikipedia provides us with detailed daily pageview statistics for specific
+            pages and for specific languages.
+
           </p>
 
           <p>
@@ -168,12 +176,12 @@ layout: default
             is a connection between changes in pageviews of Mental Health topics and changes in mobility. Before we dive
             further into our analysis, we shall introduce the mobiility datasets we used.
           </p>
-
           <p>
             There are 2 mobility datasets available to us. Global mobility report by Google and Apple Mobility Trends.
             Further, we will refer to these datasets as Google and Apple one. Both of these datasets were collected
             using data from mobile devices.
           </p>
+
 
           <p>
             Google dataset is defined as a timeseries per day, where we have 6 categories of mobility - Retail and
@@ -195,6 +203,7 @@ layout: default
             in Italy.
           </p>
 
+
           <img src="img/datastoryimages/img3.png" alt="per topic pageviews" style="width:100%">
           <figcaption> </figcaption>
 
@@ -203,8 +212,8 @@ layout: default
             Threfore, when appropriate, we will not use all the available features to us, and in case of Apple dataset,
             we will use an average of the 3 features.
           </p>
-
-          <h1> Initial Approach </h1>
+          <hr>
+          <h1 id="Initial Approach"> Initial Approach </h1>
 
           <p>For this study we have decided to focus on 5 of the most common mental health issues who are often believed
             to have been aggravated by the pandemic. These topics are <strong><em>anxiety, depression, insomnia,
@@ -217,6 +226,7 @@ layout: default
             way and on what mental health issues?
           </p>
 
+
           <h2>Distance from Normality</h2>
 
           <p>
@@ -228,7 +238,8 @@ layout: default
             We introduce a notion of <strong><em>distance from normality</em></strong> as follows. On each day, the
             pageviews in a given language edition form a distribution over mental health articles, characterizing how
             users’ attention was distributed. We represent each daily distribution as an “attention vector” of dimension
-            5 with one entry per article and entries summing to 1.</p>
+            5 with one entry per article and entries summing to 1.
+          </p>
           <p>
             The notion of “normal” attention is captured by the average attention vector over all days of 2019, i.e.,
             well before the pandemic; and for each subsequent day, the distance from normality is given by the Euclidean
@@ -258,20 +269,6 @@ layout: default
           </div>
 
           <p>
-            In the plots we see there has been some changes in <strong><em>distance from normality</em></strong> in
-            Sweden, but they started before the lockdown (although Sweden did not have official lockdown, we consider
-            the day mobility dropped). As for the Netherlands, there are no significant attention changes.
-          <p>
-            For Italy and Poland, the distance from the normality attention vector changed significantly during the
-            lockdown, so for these countries, there has been some change in user's attention distribution between our
-            chosen mental health topics after the lockdown. However, it is unclear in which direction these changes have
-            taken place. To understand this and quantify changes in the volume of pageviews, we will use the
-            <strong><em>difference in differences</em></strong> regression approach.
-          </p>
-
-          <h2>Difference-in-differences regression</h2>
-
-          <p>
             Difference-in-differences regression is a “quasi-experimental” technique that mimics an experimental design
             with observational data by studying the effect of a treatment (e.g., lockdown) on a treatment group vs. a
             control group. The difference-in-differences method aims at separating the true treatment effect from
@@ -287,6 +284,26 @@ layout: default
             non-phamaceutical interventions.
           </p>
 
+
+          <h2>Difference-in-differences regression</h2>
+
+          <p>
+            Difference-in-differences regression is a “quasi-experimental” technique that mimics an experimental design
+            with observational data by studying the effect of a treatment (e.g., lockdown) on a treatment group vs. a
+            control group. The difference-in-differences method aims at separating the true treatment effect from
+            simultaneous (e.g., seasonal) changes that would have occurred even without the treatment. To do so, we
+            calculate the post-minus-pre-treatment difference (in 2020) and compare it to the difference between the
+            corresponding time periods in the previous year (2019). Subtracting the 2019 difference from the 2020
+            difference (yielding the “difference in differences”) thus removes changes that would have occurred even
+            without the intervention (assuming 2020 would otherwise have looked like 2019) and gives a better estimate
+            of the treatment effect.
+          </p>
+          <p>
+            We will compare the difference in activity seven weeks before vs. seven weeks after the lockdown. The idea
+            here is to capture what changes were introduced by the sudden halts in human mobility induced by
+            non-phamaceutical interventions.
+          </p>
+
           <p>
             In this setup, we fix disease and consider, for each language, a time window of 14 weeks (98 days) split
             around either the lockdown date in 2020, as well as the corresponding time window in 2019. Each of these 196
@@ -294,7 +311,8 @@ layout: default
             variable y, we use the logarithm of the number of page views, and as independent variables, the following
             three factors: year (2019 or 2020), lockdown (before or after the calendar day of lockdown), and language.
             We now model y as a linear function of these three factors and all their two and three-way interactions.
-
+          </p>
+          <p>
             Pageview volumes were considered in logarithmic form for two reasons: first, because raw pageview counts are
             far from normally distributed, with numerous large outliers, and second, because the logarithm makes the
             model multiplicative, thus implicitly normalizing the estimated effects and making it possible to compare
@@ -321,19 +339,22 @@ layout: default
             not go to work, school, or university, but stayed at home, so there were few reasons for anxiety,
             accordingly, less or equal interest in an article about anxiety. To visually observe the effect, we have
             plotted the page views of the article "anxiety" in Swedish for a period of 7 weeks before lockdown and 7
-            weeks during lockdown. </p>
+            weeks during lockdown.
+          </p>
 
           <img src="img/datastoryimages/img6.png" alt="per topic pageviews" style="width:100%">
           <figcaption> </figcaption>
 
-          We can see that, indeed, during the lockdown, the number of views of the article "anxiety" in Swedish
-          decreased. For insomnia, we found that the effect of lockdown on page views was negligible:
+          <p>
+            We can see that, indeed, during the lockdown, the number of views of the article "anxiety" in Swedish
+            decreased. For insomnia, we found that the effect of lockdown on page views was negligible:
+          </p>
 
           <img src="img/datastoryimages/img7.png" alt="per topic pageviews" style="width:100%">
           <figcaption> </figcaption>
           <!-- ![image alt](https://i.imgur.com/E7RMZH2.png) -->
 
-          For loneliness we got quite interesting results:
+          <p>For loneliness we got quite interesting results:</p>
 
           <img src="img/datastoryimages/img8.png" alt="per topic pageviews" style="width:100%">
           <figcaption> </figcaption>
@@ -370,12 +391,14 @@ layout: default
           <img src="img/table_images/table1.png" alt="per topic pageviews" style="width:100%">
           <figcaption> </figcaption>
 
-          <p>Having shown the significant impact of lockdowns on Wikipedia pageviews for certain disease/country
+          <p>
+            Having shown the significant impact of lockdowns on Wikipedia pageviews for certain disease/country
             combinations, we shall examine why lockdown have such effect. Could have the change in pageviews be caused
-            by decrease in mobility?</p>
+            by decrease in mobility?
+          </p>
+          <hr>
 
-
-          <h1>
+          <h1 id="Effect of mobility">
             Does mobility affect Wikipedia pageviews?
           </h1>
 
@@ -428,7 +451,7 @@ layout: default
 
           <h3>
             Summary
-          </h3>h3>
+          </h3>
           <p>
             Below you can find a summary of the p-values and Ajusted R-squared values for each of our models.
           </p>
@@ -461,8 +484,8 @@ layout: default
           <figcaption> </figcaption>
 
 
-
-          <h1>
+          <hr>
+          <h1 id="From Pageviews to Reality">
             From Pageviews to Reality
           </h1>
           <p>
@@ -474,6 +497,7 @@ layout: default
           <h2>
             COVIDiSTRESS Dataset
           </h2>
+
 
           <p>
             We decided to look for a way to find out how people really felt during the initial lockdown. During
@@ -490,7 +514,7 @@ layout: default
             As seen earlier, the pageviews for loneliness and stress both have statistically significant changes after
             the initial lockdown. Now let us see if there is any change in pageviews and mobility evolved when we limit
             the timeframe on the Covidistress duration - April, May and June 2020. Below you can see distribution in
-            pageviews per country, where the boxes represent inter-quantile regions.
+            pageviews per country per month, where the boxes represent inter-quantile regions.
           </p>
 
           <img src="img/datastoryimages/img16.png" alt="Distance from normality for mental health pages for Swedish"
@@ -503,15 +527,16 @@ layout: default
           </p>
 
           <p>
-            Next we look at mobility during these 3 months. Below you can see
+            Next we look at mobility during these 3 months. Below you can see distribution of mobility per country per
+            month.
           </p>
 
           <img src="img/datastoryimages/img17.png" alt="Mobility during covidistress" style="width:100%">
 
 
           <p>
-            As expected since mobility restriction were slowly relaxed during this Covidistress timeframe there was
-            indeed a significant increase in mobility,
+            As expected, since in this time period the lockdown measures were already being lifted, we found a
+            significant increase in mobility.
           </p>
 
           <img src="img/table_images/table3.png" alt="per topic pageviews" class='center'>
@@ -521,18 +546,19 @@ layout: default
             We have significant result in both time period and countries.
           </p>
 
+
           <img src="img/table_images/table4.png" alt="per topic pageviews" class='center'>
           <figcaption> </figcaption>
 
           <p>
-            And all post hoc Conover tests result showed a p-value under the Sidak correction.
+            In addition, all post hoc Conover tests result showed a p-value under the Sidak correction.
           </p>
 
 
           <h2>Can we grasp the real effect of Covid on mental health using Covidistress?</h2>
           <p>
-            After some processing of Covidistress's data, we looked at it in more details and observe a rather normal
-            distribution of the likert scale perception, for both stress and loneliness.
+            After some pre-processing of Covidistress's data, we examined it in more detail and observed a rather normal
+            distribution of the likert scale perception, for both stress and loneliness, see below.
           </p>
 
           <img src="img/datastoryimages/img18.png" alt="Mobility during covidistress" class='center' style="width:90%">
@@ -540,17 +566,16 @@ layout: default
           <img src="img/datastoryimages/img20.png" alt="Mobility during covidistress" class='center' style="width:100%">
 
           <p>
-            We observe a generalize median of 3 on the likert scale, indicating that there is indeed a mild feeling of
-            loneliness and stress in each country. However, is it because of the mobility restriction in each country?
-            For that, visualization wasn't enough to see any difference between the 3 month period of the survey.
+            We observe a median of 3 on the likert scale, indicating that there is indeed a mild feeling of loneliness
+            and stress in each country. However, is it because of the mobility restriction in each country? For that,
+            visualization wasn't enough to see any difference between the 3 month period of the survey and we needed to
+            use a hypothesis test.
           </p>
 
           <p>
-            Therefore some satistics were necessary. An ANOVA was performed to compare the effect of Countries and
-            period of time of the suvey on the perceived mental issues. Unfortunatly, the ANOVAs revealed that there was
-            not a statistically significant difference in both stress and loneliness perception between the different
-            period of time of the survey (Stress: F(2, 120) = 0.245275, p = 0.782491, Loneliness: F(2, 120) = 0.230234,
-            p = 0.794349).
+            We performed ANOVA to compare the effect of Countries and periods of time of the suvey on the perceived
+            mental issues. ANOVA tests showed that there was not a statistically significant difference in both stress
+            and loneliness perception between the different periods of time of the survey.
           </p>
 
 
@@ -558,30 +583,30 @@ layout: default
           <figcaption> </figcaption>
 
           <p>
-            Concerning difference between countries, we observe a statistically significant result (Stress: F(3, 120) =
-            898.646135, p ~= 0.000000, Loneliness: F(3, 120) = 354.520932, p = 1.567319e-225)
+            Concerning difference between countries, we observe a statistically significant results.
           </p>
 
           <img src="img/table_images/table6.png" alt="per topic pageviews" class='center'>
           <figcaption> </figcaption>
           <p>
-            We then look at the difference within the countries using Conover test, a Post hoc test. Showing a
-            statistically significant difference between all countries in terms of stress perception and all but Sweden
-            and the Netherlands for loneliness, with a p-value = 0.2042965.
+            Lastly, we take a look at the difference within the countries using Conover test, a Post hoc test. The test
+            shows a statistically significant difference between all countries in terms of stress perception in all
+            pairs except Sweden and the Netherlands for loneliness.
           </p>
 
 
           <h3> Did we answer the question? </h3>
 
           <p>
-            Unfortunately, despite what was our first impression of the effect of COVID-19 on mental health, we could
-            not find any significant result that could back up our first impression. Covidistress wasn't able to provide
-            us the necessary proof to back-up our idea. However indicated us that there is still a mild stress and
-            loneliness perceived in those country, although we can't say if there is a change in time nor if it is due
-            to the mobility.
+            We hoped Covidistress dataset would help us find a link between number of pageviews and real mental health
+            issues, however, we did not find any signifact evidence backing up our hypothesis. This might have been
+            caused by the limitations of the dataset itself, which we discuss in the next section. However, it showed us
+            that there is still a mild stress and loneliness perceived in those countries, although we can't conclude if
+            there is a significant change over the considered period or if any change is due to mobility.
           </p>
 
-          <h1>
+          <hr>
+          <h1 id="Limitations">
             Downfalls and Limitations
           </h1>
 
@@ -610,7 +635,8 @@ layout: default
             the true fealings of person due to the limited answer options.
           </p>
 
-          <h1>
+          <hr>
+          <h1 id="Conclusion">
             Conclusion
           </h1>
 

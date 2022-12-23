@@ -269,21 +269,16 @@ layout: default
           </div>
 
           <p>
-            Difference-in-differences regression is a “quasi-experimental” technique that mimics an experimental design
-            with observational data by studying the effect of a treatment (e.g., lockdown) on a treatment group vs. a
-            control group. The difference-in-differences method aims at separating the true treatment effect from
-            simultaneous (e.g., seasonal) changes that would have occurred even without the treatment. To do so, we
-            calculate the post-minus-pre-treatment difference (in 2020) and compare it to the difference between the
-            corresponding time periods in the previous year (2019). Subtracting the 2019 difference from the 2020
-            difference (yielding the “difference in differences”) thus removes changes that would have occurred even
-            without the intervention (assuming 2020 would otherwise have looked like 2019) and gives a better estimate
-            of the treatment effect.
-
-            We will compare the difference in activity seven weeks before vs. seven weeks after the lockdown. The idea
-            here is to capture what changes were introduced by the sudden halts in human mobility induced by
-            non-phamaceutical interventions.
+            In the plots we see there has been some changes in <strong><em>distance from normality</em></strong> in
+            Sweden, but they started before the lockdown (although Sweden did not have official lockdown, we consider
+            the day mobility dropped). As for the Netherlands, there are no significant attention changes.
+          <p>
+            For Italy and Poland, the distance from the normality attention vector changed significantly during the
+            lockdown, so for these countries, there has been some change in user's attention distribution between our
+            chosen mental health topics after the lockdown. However, it is unclear in which direction these changes have
+            taken place. To understand this and quantify changes in the volume of pageviews, we will use the
+            <strong><em>difference in differences</em></strong> regression approach.
           </p>
-
 
           <h2>Difference-in-differences regression</h2>
 
